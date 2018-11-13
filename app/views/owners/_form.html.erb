@@ -1,0 +1,17 @@
+<%= form_for([@house, @house.owners.build]) do |f| %>
+    <p>
+      <%= f.label :Name %><br>
+      <%= f.text_field :Name %>
+    </p>
+    <p>
+      <%= f.label :Email %><br>
+      <%= f.email_field :Email %>
+    </p>
+    <p>
+      <%= f.label :Phone %><br>
+      <%= f.number_field :Phone %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>

@@ -15,15 +15,34 @@
   <%= @house.Price %>
 </p>
 
-<p>
-  <strong>Owner name:</strong>
-  <%= @house.Owner_Name %>
-</p>
+<h2>Owners</h2>
+<%= render @house.owners %>
+
+<h2>Add a Owner:</h2>
+<%= form_for([@house, @house.owners.build]) do |f| %>
+  <p>
+    <%= f.label :Name %><br>
+    <%= f.text_field :Name %>
+  </p>
+  <p>
+    <%= f.label :Email %><br>
+    <%= f.email_field :Email %>
+  </p>
+  <p>
+    <%= f.label :Phone %><br>
+    <%= f.number_field :Phone %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
 
 <p>
 <strong>Image:</strong>
 <%= image_tag @house.image %>
 </p>
+
+
 
 <%= link_to 'Edit', edit_house_path(@house) %> |
 <%= link_to 'Back', houses_path %>
